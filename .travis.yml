@@ -9,9 +9,9 @@ addons:
         packages:
             - g++-4.8
 install:
-    - npm install -g vuepress
+    - npm install
 script:
-    - npm run build blog
+    - npm run build 
 cache:
     directories:
         - "node_modules"
@@ -20,7 +20,7 @@ notifications:
 deploy:
     provider: pages
     skip-cleanup: true
-    local_dir: blog/.vuepress/dist
+    local_dir: dist
     github_token: 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
     repo: blog4share/blog4share.github.io
     keep-history: true
