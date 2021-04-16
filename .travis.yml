@@ -1,0 +1,29 @@
+node_js:
+    - "10"
+env:
+    - CXX=g++-4.8
+addons:
+    apt:
+        sources:
+            - ubuntu-toolchain-r-test
+        packages:
+            - g++-4.8
+install:
+    - npm install -g vuepress
+script:
+    - npm run blog:build
+cache:
+    directories:
+        - "node_modules"
+notifications:
+    email: false
+deploy:
+    provider: pages
+    skip-cleanup: true
+    local_dir: blog/.vuepress/dist
+    github_token: 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
+    repo: blog4share/blog4share.github.io
+    keep-history: true
+    target-branch: master
+    on:
+        branch: master
